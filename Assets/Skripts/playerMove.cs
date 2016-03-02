@@ -7,13 +7,14 @@ public class playerMove : MonoBehaviour {
     public float fBulletSpeed;
     public GameObject BulletPrefab;
     public float AttackSpeed;
+    public float fHp;
 
     //Private
     Rigidbody2D Rigid2D; //PhysikKörperdesPlayers
     Vector2 vDirection; //MoveDirection
     Vector2 vBulletDirection; //BulletMoveDirection
     float fAttackClock;
-
+    PlayerLife isPlayerLife;
 
 
 
@@ -22,6 +23,10 @@ public class playerMove : MonoBehaviour {
 	void Start () {
         fAttackClock = 0;
         Rigid2D = gameObject.GetComponent<Rigidbody2D>(); //Referenz auf die Componente des RidgidBody
+        isPlayerLife = gameObject.GetComponent<PlayerLife>();
+        isPlayerLife.Sethp(fHp);
+
+
 	}
 	
 	// Update is called once per frame
