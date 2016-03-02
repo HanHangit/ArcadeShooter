@@ -5,7 +5,8 @@ public class PlayerLife : MonoBehaviour {
 
     bool shield;
     float fHp;
-    float Clock;
+    float ShieldClock;
+    float SpeedClock;
 
     public float GetHp()
     {
@@ -16,10 +17,20 @@ public class PlayerLife : MonoBehaviour {
         fHp = Life;
     }
 
+    public void ActivateSpeed(float time, float power)
+    {
+        SpeedClock = time;
+    }
+
+    public void DeactivateSpeed()
+    {
+
+    }
+
     public void ActivateShield(float time)
     {
         shield = true;
-        Clock = time;
+        ShieldClock = time;
     }
 
     void DeactivateShield()
@@ -36,13 +47,15 @@ public class PlayerLife : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+    
+
 
     void Update()
     {
         if(shield)
         {
-            Clock -= Time.deltaTime;
-            if (Clock <= 0)
+            ShieldClock -= Time.deltaTime;
+            if (ShieldClock <= 0)
                 DeactivateShield();
         }
     }
