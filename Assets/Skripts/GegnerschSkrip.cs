@@ -5,15 +5,15 @@ public class GegnerschSkrip : MonoBehaviour {
 
     //Public 
     public float fLife;
-   
     public float fSpeed;
+    public float fDamage;
 
 
     //Private
     GegnerschLife LebensSkript;
     Rigidbody2D Rigid2D;
     Vector2 vDirectionMove;
-    private Transform PlayerPosition;
+    Transform PlayerPosition;
 
 
     // Use this for initialization
@@ -32,16 +32,30 @@ public class GegnerschSkrip : MonoBehaviour {
 
     void Move()
     {
+       
         Vector2 PlayerPosition2D = new Vector2(PlayerPosition.position.x, PlayerPosition.position.y); //PositiondesSpielers von 3d auf 2d
         Vector2 GegnerschPosition2d = new Vector2(transform.position.x, transform.position.y);//PositiondesGegnersch von 3d auf 2d
 
 
         vDirectionMove = PlayerPosition2D - GegnerschPosition2d;
+        
+       
+        
     }
     void FixedUpdate() //Update + Konstant mit der Framtime ((Alle Konstant Geupdatet)) - Alle PhysikMethoden werden Konstant geupdatet
     {
         Rigid2D.velocity = vDirectionMove.normalized * fSpeed;
     }
+    void OnTriggerEnter2D(Collider2D other) //Aufgerufen, wenn BoxCollider getriggert wird(der Collider steht auf Trigger in Unity)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            PlayerLife PlayerLeben = other.GetComponent<PlayerLife>();
+            PlayerLeben.AddLife(-fDamage);
+            //Destroy(gameObject);
+        }
+    }
+
 
 
 }
