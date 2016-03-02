@@ -3,8 +3,9 @@ using System.Collections;
 
 public class PlayerLife : MonoBehaviour {
 
-
+    bool shield;
     float fHp;
+    float Clock;
 
     public float GetHp()
     {
@@ -15,12 +16,34 @@ public class PlayerLife : MonoBehaviour {
         fHp = Life;
     }
 
+    public void ActivateShield(float time)
+    {
+        shield = true;
+        Clock = time;
+    }
+
+    void DeactivateShield()
+    {
+        shield = false;
+    }
+
     public void AddLife(float Life)
     {
-        fHp += Life;
+        if(Life > 0 || (Life < 0 && !shield))
+            fHp += Life;
         if (fHp <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void Update()
+    {
+        if(shield)
+        {
+            Clock -= Time.deltaTime;
+            if (Clock <= 0)
+                DeactivateShield();
         }
     }
 
