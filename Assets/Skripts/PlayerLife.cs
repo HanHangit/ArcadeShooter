@@ -5,11 +5,12 @@ public class PlayerLife : MonoBehaviour
 {
     public float fHp;
     public float GroundSpeed;
-
+    public int iRespawn;
     bool shield;
     float ShieldClock;
     float SpeedClock;
     float Speed;
+
     void Start()
     {
         Speed = GroundSpeed;
@@ -25,10 +26,6 @@ public class PlayerLife : MonoBehaviour
     public float GetSpeed()
     {
         return Speed;
-    }
-    public void SetSpeed(float set)
-    {
-        Speed = GroundSpeed = set;
     }
 
     public void ActivateSpeed(float time, float power)
@@ -65,7 +62,15 @@ public class PlayerLife : MonoBehaviour
 
     void Respawn()
     {
-        Debug.Log("Respawn");
+        if (iRespawn > 0)
+            Debug.Log("Respawn");
+        else
+            Debug.Log("TOD");
+    }
+
+    public int GetRespawn()
+    {
+        return iRespawn;
     }
 
     void Update()
