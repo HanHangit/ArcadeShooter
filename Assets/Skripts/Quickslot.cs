@@ -5,6 +5,7 @@ public class Quickslot : MonoBehaviour {
     Powerup[] Inventar;
     bool[] FreeSpace;
     public int Slots;
+
 	// Use this for initialization
 	void Awake () {
         FreeSpace = new bool[Slots];
@@ -36,4 +37,17 @@ public class Quickslot : MonoBehaviour {
             Debug.Log(Inventar[Number].GetName() + " aktiviert");
         }
     }
+
+    public Powerup GetItem(int Number) //Item an Position Number
+    {
+        if (!FreeSpace[Number])
+        {
+            return Inventar[Number];
+        }
+        else
+            return new Empty();
+            
+    }
+    
+
 }
