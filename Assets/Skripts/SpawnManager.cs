@@ -28,9 +28,9 @@ public class SpawnManager : MonoBehaviour {
     void Spawn()
     {
         int i = Random.Range(0, LvlManager.GetEnemyType());
-        if (i > Enemy.Length)
-            i = Enemy.Length;
-        if(LvlManager.GetCurrEnemy() < LvlManager.GetMaxEnemy())
+        if (i >= Enemy.Length)
+            i = Enemy.Length - 1;
+        if((LvlManager.GetDefeatedEnemy() + LvlManager.GetCurrentEnemy()) < LvlManager.GetMaxEnemy() )
             Instantiate(Enemy[i], transform.position, Quaternion.identity);
     }
 }
