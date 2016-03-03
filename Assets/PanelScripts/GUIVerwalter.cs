@@ -9,7 +9,7 @@ public class GUIVerwalter : MonoBehaviour {
     float fLebensanzeige;
     float fRespawnanzeige;
     float fGegnerAnzeige;
-    float fLevel;
+    int iLevel;
     float fHighscore;
     int fScore;
 
@@ -27,6 +27,7 @@ public class GUIVerwalter : MonoBehaviour {
         fLebensanzeige = PlayerInstanz.GetHp();
         fScore = PlayerInstanz.GetScorePoints();
         fRespawnanzeige = PlayerInstanz.GetRespawn();
+        iLevel = LevelInstanz.GetCurrLevel();
 	}
     public float getLeben() {
         
@@ -44,7 +45,11 @@ public class GUIVerwalter : MonoBehaviour {
 
     public string GetGegnerAnzeige()
     {
-        return LevelInstanz.GetDefeatedEnemy() + "/" + LevelInstanz.GetMaxEnemy();
+        return "Gegner: " +LevelInstanz.GetDefeatedEnemy() + "/" + LevelInstanz.GetMaxEnemy();
+    }
+    public int GetLevel()
+    {
+        return iLevel;
     }
 
 
