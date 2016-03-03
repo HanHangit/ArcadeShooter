@@ -3,14 +3,17 @@ using System.Collections;
 
 public class PlayerLife : MonoBehaviour
 {
+    public float fHp;
+    public float GroundSpeed;
 
     bool shield;
-    float fHp;
     float ShieldClock;
     float SpeedClock;
     float Speed;
-    float GroundSpeed;
-
+    void Start()
+    {
+        Speed = GroundSpeed;
+    }
     public float GetHp()
     {
         return fHp;

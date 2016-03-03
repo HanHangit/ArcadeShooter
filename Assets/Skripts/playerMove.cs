@@ -3,13 +3,13 @@ using System.Collections;
 
 public class playerMove : MonoBehaviour {
     //Public
-    public float fSpeed;
     public float fBulletSpeed;
     public GameObject BulletPrefab;
     public float AttackSpeed;
-    public float fHp;
 
     //Private
+    float fHp;
+    float fSpeed;
     Rigidbody2D Rigid2D; //PhysikKörperdesPlayers
     Vector2 vDirection; //MoveDirection
     Vector2 vBulletDirection; //BulletMoveDirection
@@ -25,8 +25,6 @@ public class playerMove : MonoBehaviour {
         fAttackClock = 0;
         Rigid2D = gameObject.GetComponent<Rigidbody2D>(); //Referenz auf die Componente des RidgidBody
         isPlayerLife = gameObject.GetComponent<PlayerLife>();
-        isPlayerLife.Sethp(fHp);
-        isPlayerLife.SetSpeed(fSpeed);
         Inventar = gameObject.GetComponent<Quickslot>();
 
 	}
