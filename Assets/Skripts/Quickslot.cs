@@ -4,10 +4,11 @@ using System.Collections;
 public class Quickslot : MonoBehaviour {
     Powerup[] Inventar;
     bool[] FreeSpace;
+    public int Slots;
 	// Use this for initialization
 	void Awake () {
-        FreeSpace = new bool[9];
-        Inventar = new Powerup[9];
+        FreeSpace = new bool[Slots];
+        Inventar = new Powerup[Slots];
         for (int i = 0; i < FreeSpace.Length; ++i)
             FreeSpace[i] = true;
 	}
@@ -20,6 +21,7 @@ public class Quickslot : MonoBehaviour {
             {
                 Inventar[i] = ToAdd;
                 FreeSpace[i] = false;
+                break;
             }
         }
     }

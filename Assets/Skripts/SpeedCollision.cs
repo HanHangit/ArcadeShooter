@@ -2,14 +2,16 @@
 using System.Collections;
 
 public class SpeedCollision : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public float Duration;
+    public float Power;
+    Speed powerup;
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            powerup = new Speed(Duration,Power);
+            other.GetComponent<Quickslot>().AddItem(powerup);
+            Destroy(gameObject);
+        }
+    }
 }

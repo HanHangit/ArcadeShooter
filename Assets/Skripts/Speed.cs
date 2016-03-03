@@ -6,7 +6,7 @@ public class Speed : Powerup
 {
     float Power;
     float Time;
-    Speed(float time, float power)
+    public Speed(float time, float power)
     {
         Time = time;
         Power = power;
