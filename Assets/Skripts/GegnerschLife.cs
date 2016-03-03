@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GegnerschLife : MonoBehaviour {
+public class GegnerschLife : MonoBehaviour
+{
 
     //public
     public int ScorePunkte;
@@ -11,6 +12,7 @@ public class GegnerschLife : MonoBehaviour {
     //Priate
     float fHp;
     PlayerLife PlayerLifeInstanz;
+    LevelManager LvlManager;
 
     public float GetHp()
     {
@@ -24,15 +26,17 @@ public class GegnerschLife : MonoBehaviour {
     public void AddLife(float Life)
     {
         fHp += Life;
-        if(fHp <= 0)
+        if (fHp <= 0)
         {
             PlayerLifeInstanz.AddScorePoints(ScorePunkte);
+            LvlManager.AddDefeatedEnemy();
             Destroy(gameObject);  //Enemy zerstört
         }
     }
     void Start()
     {
         PlayerLifeInstanz = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
+        LvlManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
 

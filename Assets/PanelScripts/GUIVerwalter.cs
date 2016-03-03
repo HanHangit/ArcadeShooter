@@ -4,7 +4,7 @@ using System.Collections;
 public class GUIVerwalter : MonoBehaviour {
 
     PlayerLife PlayerInstanz;
-   
+    LevelManager LevelInstanz;
 
     float fLebensanzeige;
     float fRespawnanzeige;
@@ -16,6 +16,7 @@ public class GUIVerwalter : MonoBehaviour {
 
 	void Start () {
         PlayerInstanz = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>(); //Greift auf die Klasse Player zu
+        LevelInstanz = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
        
 
 
@@ -39,6 +40,11 @@ public class GUIVerwalter : MonoBehaviour {
     public int getScore()
     {
         return fScore;
+    }
+
+    public string GetGegnerAnzeige()
+    {
+        return LevelInstanz.GetDefeatedEnemy() + "/" + LevelInstanz.GetMaxEnemy();
     }
 
 

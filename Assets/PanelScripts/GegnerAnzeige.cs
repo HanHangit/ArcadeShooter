@@ -14,6 +14,6 @@ public class GegnerAnzeige : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    
+        Anzeige.text = GUIINstanz.GetGegnerAnzeige();
 	}
 }
