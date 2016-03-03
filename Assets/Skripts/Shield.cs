@@ -12,7 +12,6 @@ public class Shield : Powerup
     }
     public override void Use()
     {
-        Debug.Log("Shield Activate");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>().ActivateShield(Duration);
     }
 }

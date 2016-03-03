@@ -2,10 +2,11 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class HPTextAnzeige : MonoBehaviour {
+public class HPTextAnzeige : MonoBehaviour
+{
 
     //Public
-   
+
 
     //private
     Text Anzeige;
@@ -13,19 +14,18 @@ public class HPTextAnzeige : MonoBehaviour {
     GUIVerwalter AnzeigeFuerLeben;
 
 
-	// Use this for initialization
-	void Start () {
-        AnzeigeFuerLeben = GameObject.FindGameObjectWithTag("Player").GetComponent<GUIVerwalter>();
-        AnzeigeFuerLeben.getLeben();
-        //Anzeige = gameObject.GetComponent<Text>();
-        Debug.Log(AnzeigeFuerLeben.getLeben());
-        
+    // Use this for initialization
+    void Start()
+    {
+        AnzeigeFuerLeben = GameObject.FindGameObjectWithTag("Verwaltung").GetComponent<GUIVerwalter>();
+        Anzeige = GetComponent<Text>();
+
     }
-	
-	// Update is called once per frame
-	void Update () {
-        Anzeige.text = "HPLebenhihi: "; //+ AnzeigeFuerLeben.ToString();
-        Anzeige.text.ToString();
+
+    // Update is called once per frame
+    void Update()
+    {
+        Anzeige.text = "HP: " + AnzeigeFuerLeben.getLeben();
     }
-   
+
 }

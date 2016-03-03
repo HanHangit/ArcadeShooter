@@ -26,12 +26,14 @@ public class playerMove : MonoBehaviour {
         Rigid2D = gameObject.GetComponent<Rigidbody2D>(); //Referenz auf die Componente des RidgidBody
         isPlayerLife = gameObject.GetComponent<PlayerLife>();
         isPlayerLife.Sethp(fHp);
+        isPlayerLife.SetSpeed(fSpeed);
         Inventar = gameObject.GetComponent<Quickslot>();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        fSpeed = isPlayerLife.GetSpeed();
         vDirection = Vector2.zero; 
         vBulletDirection = Vector2.zero;
         fAttackClock += Time.deltaTime;

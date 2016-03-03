@@ -5,12 +5,15 @@ using System;
 public class Speed : Powerup
 {
     float Power;
-    Speed(float power)
+    float Time;
+    Speed(float time, float power)
     {
+        Time = time;
         Power = power;
+        SetName("Speed");
     }
     public override void Use()
     {
-        throw new NotImplementedException();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>().ActivateSpeed(Time, Power);
     }
 }

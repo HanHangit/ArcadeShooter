@@ -31,6 +31,7 @@ public class Quickslot : MonoBehaviour {
         {
             Inventar[Number].Use();
             FreeSpace[Number] = true;
+            Debug.Log(Inventar[Number].GetName() + " aktiviert");
         }
     }
 }
