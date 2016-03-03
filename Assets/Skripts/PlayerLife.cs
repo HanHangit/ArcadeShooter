@@ -10,10 +10,12 @@ public class PlayerLife : MonoBehaviour
     float ShieldClock;
     float SpeedClock;
     float Speed;
+    int iPoints;
 
     void Start()
     {
         Speed = GroundSpeed;
+        iPoints = 100;
     }
     public float GetHp()
     {
@@ -73,6 +75,19 @@ public class PlayerLife : MonoBehaviour
         return iRespawn;
     }
 
+    public int GetScorePoints()
+    {
+        return iPoints;
+    }
+    public void AddScorePoints(int Points)
+    {
+        iPoints += Points;
+
+    }
+
+
+
+
     void Update()
     {
         if (shield)
@@ -86,6 +101,7 @@ public class PlayerLife : MonoBehaviour
         if (SpeedClock <= 0)
             DeactivateSpeed();
     }
+
 
 
 

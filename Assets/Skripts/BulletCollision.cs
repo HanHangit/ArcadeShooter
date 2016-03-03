@@ -20,7 +20,8 @@ public class BulletCollision : MonoBehaviour {
         {
             GegnerschLife EnemyLife = other.GetComponent<GegnerschLife>();
             EnemyLife.AddLife(-Damage);
-            Destroy(gameObject);
+
+            Destroy(gameObject); //Bullet zerstört
         }
     }
 

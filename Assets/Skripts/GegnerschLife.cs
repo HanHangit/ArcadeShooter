@@ -4,12 +4,13 @@ using System.Collections;
 public class GegnerschLife : MonoBehaviour {
 
     //public
-
+    public int ScorePunkte;
 
 
 
     //Priate
     float fHp;
+    PlayerLife PlayerLifeInstanz;
 
     public float GetHp()
     {
@@ -25,8 +26,13 @@ public class GegnerschLife : MonoBehaviour {
         fHp += Life;
         if(fHp <= 0)
         {
-            Destroy(gameObject);
+            PlayerLifeInstanz.AddScorePoints(ScorePunkte);
+            Destroy(gameObject);  //Enemy zerstört
         }
+    }
+    void Start()
+    {
+        PlayerLifeInstanz = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
     }
 
 
