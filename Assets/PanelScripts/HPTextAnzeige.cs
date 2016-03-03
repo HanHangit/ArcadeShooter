@@ -10,22 +10,24 @@ public class HPTextAnzeige : MonoBehaviour
 
     //private
     Text Anzeige;
-
-    GUIVerwalter AnzeigeFuerLeben;
+    GUIVerwalter GUIInstanz;
+    
 
 
     // Use this for initialization
     void Start()
     {
-        AnzeigeFuerLeben = GameObject.FindGameObjectWithTag("Verwaltung").GetComponent<GUIVerwalter>();
+        GUIInstanz = GameObject.FindGameObjectWithTag("Verwaltung").GetComponent<GUIVerwalter>();
         Anzeige = GetComponent<Text>();
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Anzeige.text = "HP: " + AnzeigeFuerLeben.getLeben();
+        Anzeige.text = "HP: " + GUIInstanz.getLeben();
+        
+
     }
 
 }
