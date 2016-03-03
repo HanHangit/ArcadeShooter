@@ -8,7 +8,6 @@ public class GegnerschSkrip : MonoBehaviour {
     public float fSpeed;
     public float fDamage;
 
-
     //Private
     GegnerschLife LebensSkript;
     Rigidbody2D Rigid2D;
