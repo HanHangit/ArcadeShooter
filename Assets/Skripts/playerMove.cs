@@ -112,18 +112,6 @@ public class playerMove : MonoBehaviour {
             Inventar.UseItem(2);
         if (Input.GetKeyDown(KeyCode.Keypad3))
             Inventar.UseItem(3);
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-            Inventar.UseItem(4);
-        if (Input.GetKeyDown(KeyCode.Keypad5))
-            Inventar.UseItem(5);
-        if (Input.GetKeyDown(KeyCode.Keypad6))
-            Inventar.UseItem(6);
-        if (Input.GetKeyDown(KeyCode.Keypad7))
-            Inventar.UseItem(7);
-        if (Input.GetKeyDown(KeyCode.Keypad8))
-            Inventar.UseItem(8);
-        if (Input.GetKeyDown(KeyCode.Keypad9))
-            Inventar.UseItem(9);
     }
 }
 

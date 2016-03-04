@@ -6,19 +6,27 @@ using UnityEngine.UI;
 public class Shield : Powerup
 {
     float Duration;
+    private string Name;
 
-
-    public Sprite Picture;
+    Sprite Picture;
     public Shield(float SetDuration)
     {
+        Picture = Resources.Load<Sprite>("Sprites/Shield");
+        Name = "Schild";
         Duration = SetDuration;
-        SetName("Schild");
-        SetImage(Picture);
     }
     public override void Use()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>().ActivateShield(Duration);
     }
 
-    
+    public override string GetName()
+    {
+        return Name;
+    }
+
+    public override Sprite GetImage()
+    {
+        return Picture;
+    }
 }

@@ -11,7 +11,10 @@ public class Quickslot : MonoBehaviour {
         FreeSpace = new bool[Slots];
         Inventar = new Powerup[Slots];
         for (int i = 0; i < FreeSpace.Length; ++i)
+        {
+            Inventar[i] = new Empty();
             FreeSpace[i] = true;
+        }
 	}
 
     public void AddItem(Powerup ToAdd)
