@@ -43,7 +43,7 @@ public class GegnerschSkrip : MonoBehaviour {
 
         Vector2 PlayerPosition2D = new Vector2(PlayerPosition.position.x, PlayerPosition.position.y); //PositiondesSpielers von 3d auf 2d
         Vector2 GegnerschPosition2d = new Vector2(transform.position.x, transform.position.y);//PositiondesGegnersch von 3d auf 2d
-
+        /*
         difx = Mathf.Abs(PlayerPosition2D.x - GegnerschPosition2d.x);
         dify = Mathf.Abs(PlayerPosition2D.y - GegnerschPosition2d.y);
         Debug.Log(difx);
@@ -74,14 +74,13 @@ public class GegnerschSkrip : MonoBehaviour {
             anim.SetFloat("MoveY", -1);
             lastMove = new Vector2(0, -1);
         }
-        */
 
 
 
 
         anim.SetFloat("LastMoveX", lastMove.x);
         anim.SetFloat("LastMoveY", lastMove.y);
-
+        */
         vDirectionMove = PlayerPosition2D - GegnerschPosition2d;
         
        
